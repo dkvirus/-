@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.quadrant{
+  background-color: blue;
+  width: 48%;
+  height: 400rpx;
+  border: 1px solid black;
+  margin-bottom: 10rpx;
+}

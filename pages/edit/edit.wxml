@@ -1,0 +1,17 @@
+<view>
+  <view class="row">
+    <text>是否紧急</text>
+    <switch checked="{{journal.isUrgent}}" bindchange="handleUrgent"/>
+  </view>
+  <view class="row">
+    <text>是否重要</text>
+    <switch checked="{{journal.isImportant}}" bindchange="handleImportant"/>
+  </view>
+  <view class="row">
+      <text>日志内容</text>
+      <textarea placeholder="输入内容" class="textarea-border" bindinput="handleContent"/>
+  </view>
+  <view class="btn-view">
+    <button type="primary" bindtap="handleSubmit">确定</button>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+.item{
+  padding: 10rpx;
+}
+
+.title{
+  border: 1px solid yellow;
+  background-color: #ccc;
+}
+
+.list{
+  margin-bottom: 30rpx;
+}
+
+.content{
+  padding-left: 30rpx;
+}
+
+.operation{
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}

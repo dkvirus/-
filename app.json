@@ -1,0 +1,29 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/all/all",
+    "pages/edit/edit"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "今日日志"
+      },
+      {
+        "pagePath": "pages/all/all",
+        "text": "全部日志"
+      },
+      {
+        "pagePath": "pages/edit/edit",
+        "text": "添加日志"
+      }
+    ]
+  }
+}

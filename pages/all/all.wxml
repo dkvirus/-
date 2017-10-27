@@ -1,0 +1,65 @@
+<view>
+  <view class="item">
+    <view class="title">紧急且重要的事：</view>
+    <view wx:if="{{nurgNimp.length == 0}}">
+      还没有内容哦~~
+    </view>
+    <view class="list" wx:for="{{urgImp}}">
+      <view class="content">
+        <text>{{item.content}}</text>
+      </view>
+      <view class="operation">
+        <text>完成</text>
+        <text>修改</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="title">紧急但不重要的事：</view>
+    <view wx:if="{{nurgNimp.length == 0}}">
+      还没有内容哦~~
+    </view>
+    <view class="list" wx:for="{{urgNimp}}">
+      <view class="content">
+        <text>{{item.content}}</text>
+      </view>
+      <view class="operation">
+        <text>完成</text>
+        <text>修改</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="title">不紧急但重要的事：</view>
+    <view wx:if="{{nurgNimp.length == 0}}">
+      还没有内容哦~~
+    </view>
+    <view class="list" wx:for="{{nurgImp}}">
+      <view class="content">
+        <text>{{item.content}}</text>
+      </view>
+      <view class="operation">
+        <text>完成</text>
+        <text>修改</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="item">
+    <view class="title">不紧急又不重要的事：</view>
+    <view wx:if="{{nurgNimp.length == 0}}">
+      还没有内容哦~~
+    </view>
+    <view class="list" wx:for="{{nurgNimp}}">
+      <view class="content">
+        <text>{{item.content}}</text>
+      </view>
+      <view class="operation">
+        <text>完成</text>
+        <text>修改</text>
+      </view>
+    </view>
+  </view>
+</view>
