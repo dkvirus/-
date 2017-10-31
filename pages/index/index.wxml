@@ -1,58 +1,64 @@
 <!--index.wxml-->
-<view>
-  <view style='width: 100%;display: flex;'>
-    <view style='width: 6%;background-color: green;'></view>
-    <view style='width: 47%;background-color: red;'>重要</view>
-    <view style='width: 47%;background-color: blue;'>不重要</view>
+<view class="container">
+  <view class="row-title">
+    <view class="column6 text-title"></view>
+    <view class="column47 text-title"> 
+      <text>重要</text> 
+    </view>
+    <view class="column47 text-title"> 
+      <text>不重要</text> 
+    </view>
   </view>
  
-  <view style='width: 100%;display: flex;height:300rpx;border:1px solid black;'>
-    <view style='width: 6%;background-color: green;'>紧急</view>
-    <view style='width: 47%;background-color: red;font-size: 14px;'>
+  <view class="row-content">
+    <view class="column6 text-title urgent"> <text>紧急</text> </view>
+    <view class="column47 first" bindtap="enterList" data-number="first">
       <view wx:if="{{urgImp.length === 0}}">
-        还没有内容哦....
+        <text>还没有内容哦....</text> 
       </view>
       <view wx:for="{{urgImp}}">
         <text>{{index + 1}}.{{item.content}}</text>
       </view>
+      <view class="tip">第一象限</view>
     </view>
-    <view style='width: 47%;background-color: blue;font-size: 14px;'>
+    <view class="column47 second" bindtap="enterList" data-number="second">
       <view wx:if="{{urgNimp.length === 0}}">
-        还没有内容哦....
+        <text>还没有内容哦....</text>   
       </view>
       <view wx:for="{{urgNimp}}">
         <text>{{index + 1}}.{{item.content}}</text>
       </view>
+      <view class="tip">第二象限</view>
     </view>
   </view>
 
-  <view style='width: 100%;display: flex;height:300rpx;border:1px solid black;'>
-    <view style='width: 6%;background-color: green;'>不紧急</view>
-    <view style='width: 47%;background-color: red;font-size: 14px;'>
+  <view class="row-content">
+    <view class="column6 text-title urgent"> <text>不紧急</text> </view>
+    <view class="column47 third" bindtap="enterList" data-number="third">
       <view wx:if="{{nurgImp.length === 0}}">
-        还没有内容哦....
+        <text>还没有内容哦....</text>
       </view>
       <view wx:for="{{nurgImp}}">
         <text>{{index + 1}}.{{item.content}}</text>
       </view>
+      <view class="tip">第三象限</view>
     </view>
-    <view style='width: 47%;background-color: blue;font-size: 14px;'>
+    <view class="column47 fourth" bindtap="enterList" data-number="fourth">
       <view wx:if="{{nurgNimp.length === 0}}">
-        还没有内容哦....
+        <text>还没有内容哦....</text>
       </view>
       <view wx:for="{{nurgNimp}}">
         <text>{{index + 1}}.{{item.content}}</text>
       </view>
+      <view class="tip">第四象限</view>
     </view>
   </view>
-
-  <view style='font-size: 14px;'>
-    <text >
-      注：\n
-      1. 紧急且重要：如果今天只能做一件事，就是那件事；\n
-      2. 紧急不重要：今天要完成，但难度不大，稍后再做；\n 
-      3. 不紧急重要：今天不做，还要上心，找时间做掉；\n 
-      4. 不紧急不重要：有这么个事，知道就行，不一定要做。
-    </text>
-  </view>
 </view>
+
+<view class="annotation">
+  <text>
+    tips：\n 1. 紧急且重要：如果今天只能做一件事，就是那件事；\n2. 紧急不重要：今天要完成，但难度不大，稍后再做；\n 3. 不紧急重要：今天不做，但要上心，找时间做；\n 4. 不紧急不重要：有这么个事，知道就行，不一定要做。
+  </text>
+  <view class="clear" bindtap="clearAll">clear all</view>
+</view>
+

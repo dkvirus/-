@@ -10,10 +10,44 @@ Page({
     nurgNimp: []
   },
 
+  // 点击象限进入对应的列表中
+  enterList: function (e) {
+    var number = e.currentTarget.dataset.number;
+    var sNumber = wx.getStorageSync('number') || '';
+    sNumber = number;
+    wx.setStorageSync('number', sNumber);
+    wx.switchTab({
+      url: '../all/all',
+    })
+  },
+
+  // 清除缓存
+  clearAll: function () {
+    var that = this;
+    wx.showModal({
+      content: '确定清楚全部日志吗？',
+      success: function (res) {
+        if (res.confirm) {
+          wx.removeStorageSync('journals')
+          that.setData({
+            urgImp: [],
+            urgNimp: [],
+            nurgImp: [],
+            nurgNimp: []
+          });
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.initData();
+  },
+
+  initData: function () {
     this.setData({
       journals: (wx.getStorageSync('journals') || [])
     })

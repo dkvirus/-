@@ -1,64 +1,58 @@
-<view>
-  <view class="item">
-    <view class="title">紧急且重要的事：</view>
-    <view wx:if="{{nurgNimp.length == 0}}">
-      还没有内容哦~~
-    </view>
-    <view class="list" wx:for="{{urgImp}}">
-      <view class="content">
-        <text>{{item.content}}</text>
+<view class="container">
+  <view wx:if="{{number == 'first' || number == 'all'}}">
+    <view class="selection">
+      <view class="title first">
+        第一象限：紧急且重要的事
       </view>
-      <view class="operation">
-        <text>完成</text>
-        <text>修改</text>
+      <view class="list" wx:if="{{urgImp.length == 0}}">
+        <text>还没有内容哦~~</text>
       </view>
-    </view>
-  </view>
-
-  <view class="item">
-    <view class="title">紧急但不重要的事：</view>
-    <view wx:if="{{nurgNimp.length == 0}}">
-      还没有内容哦~~
-    </view>
-    <view class="list" wx:for="{{urgNimp}}">
-      <view class="content">
-        <text>{{item.content}}</text>
-      </view>
-      <view class="operation">
-        <text>完成</text>
-        <text>修改</text>
+      <view class="list" wx:for="{{urgImp}}">
+        <view class="content" bindtap="handleItem" data-id="{{item.id}}">
+          <text>{{index+1}}.{{item.content}}</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <view class="item">
-    <view class="title">不紧急但重要的事：</view>
-    <view wx:if="{{nurgNimp.length == 0}}">
-      还没有内容哦~~
-    </view>
-    <view class="list" wx:for="{{nurgImp}}">
-      <view class="content">
-        <text>{{item.content}}</text>
+  <view wx:if="{{number == 'second' || number == 'all'}}">
+    <view class="selection">
+      <view class="title second">第二象限：紧急但不重要的事：</view>
+      <view class="list" wx:if="{{urgNimp.length == 0}}">
+        <text>还没有内容哦~~</text>
       </view>
-      <view class="operation">
-        <text>完成</text>
-        <text>修改</text>
+      <view class="list" wx:for="{{urgNimp}}">
+        <view class="content" bindtap="handleItem" data-id="{{item.id}}">
+          <text>{{index+1}}.{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view wx:if="{{number == 'third' || number == 'all'}}">
+    <view class="selection">
+      <view class="title third">第三象限：不紧急但重要的事：</view>
+      <view class="list" wx:if="{{nurgImp.length == 0}}">
+        <text>还没有内容哦~~</text>
+      </view>
+      <view class="list" wx:for="{{nurgImp}}">
+        <view class="content" bindtap="handleItem" data-id="{{item.id}}">
+          <text>{{index+1}}.{{item.content}}</text>
+        </view>
       </view>
     </view>
   </view>
 
-  <view class="item">
-    <view class="title">不紧急又不重要的事：</view>
-    <view wx:if="{{nurgNimp.length == 0}}">
-      还没有内容哦~~
-    </view>
-    <view class="list" wx:for="{{nurgNimp}}">
-      <view class="content">
-        <text>{{item.content}}</text>
+  <view wx:if="{{number == 'fourth' || number == 'all'}}">
+    <view class="selection">
+      <view class="title fourth">第四象限：不紧急又不重要的事：</view>
+      <view class="list" wx:if="{{nurgNimp.length == 0}}">
+        <text>还没有内容哦~~</text>
       </view>
-      <view class="operation">
-        <text>完成</text>
-        <text>修改</text>
+      <view class="list" wx:for="{{nurgNimp}}">
+        <view class="content" bindtap="handleItem" data-id="{{item.id}}">
+          <text>{{index+1}}.{{item.content}}</text>
+        </view>
       </view>
     </view>
   </view>

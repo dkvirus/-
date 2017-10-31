@@ -8,27 +8,57 @@ Page({
     urgImp: [],
     urgNimp: [],
     nurgImp: [],
-    nurgNimp: []
+    nurgNimp: [],
+    number: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log('onLoad')
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  handleItem: function (e) {
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    wx.showActionSheet({
+      itemList: ['修改日志', '完成任务'],
+      success: function (res) {
+        if (res.tapIndex === 0) {
+          // 修改日志
+          var journals = wx.getStorageSync('journals');
+          var newJournals = journals.map(item => {
+            if (item.id === id) {
+              item.edit = true;
+            }
+            return item;
+          });
+          wx.setStorageSync('journals', newJournals);
+          wx.switchTab({
+            url: '../edit/edit'
+          })
+        } else {
+          // 完成任务
+          var journals = wx.getStorageSync('journals');
+          var newJournals = journals.filter(item => item.id !== id);
+          wx.setStorageSync('journals', newJournals);
+          that.initData();
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.initData();
+    this.initNumber();
+  },
+
+  initNumber: function () {
+    var number = wx.getStorageSync('number') || '';
+    this.setData({
+      number: number
+    });
+    wx.setStorageSync('number', 'all')
+  },
+
+  initData: function () {
     this.setData({
       urgImp: [],
       urgNimp: [],
