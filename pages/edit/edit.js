@@ -49,16 +49,19 @@ Page({
    * 确定按钮触发事件
    */
   handleSubmit: function () {
+    var journals = wx.getStorageSync('journals') || [];
     var newJournal = this.data.journal;
-    newJournal.id = String(new Date().getTime()) + String(Math.floor((Math.random() * 10000)));
-    this.setData({
-      journal: newJournal
-    });
-    var journals = wx.getStorageSync('journals');
-    if (journals === '') {
-      journals = [];
+    if (!newJournal.id) {
+      newJournal.id = String(new Date().getTime()) + String(Math.floor((Math.random() * 10000)));
+      journals.push(newJournal);
+    } else {
+      journals = journals.map(item => {
+        if (item.id === newJournal.id) {
+          item = newJournal;
+        }
+        return item;
+      });
     }
-    journals.push(this.data.journal);
     wx.setStorageSync('journals', journals);
     wx.switchTab({
       url: '../index/index'

@@ -32,6 +32,10 @@ page{
   position: relative;
   padding: 10rpx;
 }
+.column47 text{
+  position:relative;
+  z-index: 999;
+}
 
 .first{
   background-color: red;
@@ -69,9 +73,10 @@ text{
   background-color: #8585BB;
 }
 .tip{
-  color: white;
+  color: #C6C6DF;
   font-size: 16px;
   position: absolute;
   top: 40%;
   right: 40%;
+  z-index: 1;
 }
